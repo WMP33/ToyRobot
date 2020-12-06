@@ -14,13 +14,13 @@ namespace ToyRobot.Core.commands
         {
             var parameterArray = parameters.Split(new char[] { ',' });
             if (parameterArray.Length != 3)
-                throw new ArgumentException();
+                throw new ArgumentException("Invalid Number of Arguments");
 
             if (!int.TryParse(parameterArray[0], out _x))
-                throw new ArgumentException("Invalid X");
+                throw new ArgumentException("Invalid X placement");
 
             if (!int.TryParse(parameterArray[1], out _y))
-                throw new ArgumentException();
+                throw new ArgumentException("Invalid Y placement");
 
             if (!Enum.TryParse(typeof(Direction), parameterArray[2], true, out var direction))
                 throw new ArgumentException();

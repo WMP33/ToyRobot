@@ -46,9 +46,9 @@ namespace ToyRobot
                             {
                                 simulation.Execute(line);
                             }
-                            catch (ArgumentException)
+                            catch (ArgumentException e)
                             {
-                                Console.WriteLine("command ignored.");
+                                Console.WriteLine("command ignored. {0}", e.Message);
                             }
                         }
                     }
@@ -82,9 +82,9 @@ namespace ToyRobot
                     if (command != null && command.ToLower() != "exit")
                         simulation.Execute(command);
                 }
-                catch (ArgumentException)
+                catch (ArgumentException e)
                 {
-                    Console.WriteLine("command ignored.");
+                    Console.WriteLine("command ignored. {0}",e.Message);
                 }
 
             } while (command != null && command.ToLower() != "exit");

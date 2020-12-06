@@ -10,7 +10,7 @@ namespace ToyRobot.Core
         {
             var commandArray =  commandInput.ToUpper().Split(new char[] { ' ' });
             if (!Enum.TryParse(typeof(Commands), commandArray[0], true, out object command))
-                throw new ArgumentException();
+                throw new ArgumentException("Invalid Command");
             switch ((Commands)command)
             {
                 case Commands.Place:
@@ -26,7 +26,7 @@ namespace ToyRobot.Core
                 case Commands.Report:
                     return new ReportCommand();
                 default:
-                    throw new ArgumentException();
+                    throw new ArgumentException("Invalid Command");
             }
         }
     }
